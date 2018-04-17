@@ -1,6 +1,6 @@
 # Analytics App
 
-This file includes code review of the application. You can find installation steps in INSTALL.md.
+This file includes code review of the application. You can find installation steps in [INSTALL.md](https://github.com/ulubeyn/AnalyticsApp/blob/master/INSTALL.md).
 
 - Technologies used;
     * Varnish
@@ -81,7 +81,7 @@ When you take a look at source code of `BigQueryClient` class, you see nothing b
 
 Additionally, you may wonder why I have used `SQLTypes` instead of directly using `LegacySqlTypeName` of BigQuery Java client API. Anyone can easily use `LegacySqlTypeName.valueOf` method to get `LegacySqlTypeName` instance. But to avoid exceptions because of typos, I have just created case object `STRING`. You can add additional case objects such as `BOOLEAN`, `TIMESTAMP`, etc.
 
-### BigQuery Connector and Constants
+### BigQuery Connector and Constants
 
 `BqConnector` has been designed to be used with request handler which is simply an actor. Instead of directly using `BigQueryClient`, I have created bridge-like `BqConnector` which supports all functionalities which are going to be used by this application. Any additional functionalities can be added into `BqConnector`.
 
@@ -96,9 +96,3 @@ Web requests are coming to actors as `PostRequestEntity` and `GetRequestEntity`.
 As mentioned, request handlers are just actors. Simply, application is creating an actor per request. Every single actor is request handler. According to request entity, it gets the job done. Companion object of request handler is provided for getting `Props` while creating actors. This is the recommended way to create actors in Akka.
 
 WebServer includes routing and uses Akka Http server library. Companion class of web server expects actor system, execution context executor and ask timeout implicitly. I have used ask pattern instead of tell pattern because I wanted to wait for response of request handler.
-
-#### Further Improvements
-
-* Loggers can be added
-* Exception handling mechanism in functional programming sense can be added at every layer
-* Routes can be defined as traits

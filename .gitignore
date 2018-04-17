@@ -10,6 +10,7 @@ project/plugins/project/
 .idea
 .DS_Store/
 *.DS_Store
+/project/target/*
 
 ### Scala template
 *.class
