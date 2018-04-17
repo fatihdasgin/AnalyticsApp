@@ -4,13 +4,13 @@ lib_managed/
 src_managed/
 project/boot/
 project/plugins/project/
+project/target/
 .history
 .cache
 .lib/
 .idea
 .DS_Store/
 *.DS_Store
-project/target/*
 
 ### Scala template
 *.class
